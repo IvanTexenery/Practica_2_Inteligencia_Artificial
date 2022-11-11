@@ -16,6 +16,7 @@
 #include <cmath>
 #include "InputOutput.h"
 #include <stdlib.h>
+static int counter{0};
 
 class Grid {
  public:
@@ -31,9 +32,6 @@ class Grid {
   std::vector<std::string> path_;
 
 };
-//TENER UN VECTOR DE VISITADOS
-//COMPROBAR SI UN MOVIMIENTO ES VISITADO
-//LISTA ABIERTA/LISTA CERRADA
 
 //-----------------------------------------------------------------------------------------------
 // Finder
