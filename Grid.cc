@@ -4,7 +4,7 @@
  * Asignatura: Inteligencia Artificial
  * Curso: 3º
  * Autores: Iván Texenery Díaz García & Muhammad Campos Preira
- * Correos: alu0101429762@ull.edu.es &
+ * Correos: alu0101429762@ull.edu.es & alu0101434025@ull.edu.es
  * Archivo Grid.cc: fichero de la clase Grid.
  *         Contiene la definición de la clase Grid,
  *         encargada de realizar las operaciones correspondientes

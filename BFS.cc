@@ -4,7 +4,7 @@
  * Asignatura: Inteligencia Artificial
  * Curso: 3º
  * Autores: Iván Texenery Díaz García & Muhammad Campos Preira
- * Correos: alu0101429762@ull.edu.es &
+ * Correos: alu0101429762@ull.edu.es & alu0101434025@ull.edu.es
  * Archivo ASearch.cc: fichero main.
  *         Se encarga de crear un objeto de
  *         la clase InputOutput e interactuar

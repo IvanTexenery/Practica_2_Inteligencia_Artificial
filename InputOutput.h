@@ -4,7 +4,7 @@
  * Asignatura: Inteligencia Artificial
  * Curso: 3º
  * Autores: Iván Texenery Díaz García & Muhammad Campos Preira
- * Correos: alu0101429762@ull.edu.es &
+ * Correos: alu0101429762@ull.edu.es & alu0101434025@ull.edu.es
  * Archivo InputOutput.h: fichero de la clase InputOutput.
  *         Contiene la declaración de la clase InputOutput,
  *         encargada de supervisar toda la operación de 
