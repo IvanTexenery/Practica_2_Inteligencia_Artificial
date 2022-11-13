@@ -16,7 +16,7 @@
 #include <cmath>
 #include "InputOutput.h"
 #include <stdlib.h>
-static int counter{0};
+
 
 class Grid {
  public:
@@ -24,8 +24,10 @@ class Grid {
   ~Grid(){};
   friend std::ostream &operator<<(std::ostream &output, const Grid &grid);
   void BFS(std::pair<int, int> inicio, std::pair<int, int> fin, std::string evaluation_function);
+  int GetCounter(){return counter;};
 
  private:
+  int counter{0};
   int rows_{0}, columns_{0}; 
   std::pair<int, int> init_, end_;
   std::vector<std::pair<int, int>> nodes_; 

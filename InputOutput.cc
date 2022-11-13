@@ -34,7 +34,7 @@ int InputOutput::InitialCheck() {
     }
   }
   return 0;
-}
+} 
 
 void InputOutput::FileInputOutput() {
   char** argv{GetArgv()};
@@ -72,20 +72,57 @@ void InputOutput::FileInputOutput() {
       bool finished_2{false};
       while (!finished_2) {
         std::cout << "Introduzca que tipo de función de evaluación se desea "
-                     "utilizar[Manhattan|Euclidean]:";
+                     "utilizar[Manhattan|Euclidean|Ambas]:";
         std::cin >> evaluation_function;
         if (evaluation_function != "Manhattan" &&
-            evaluation_function != "Euclidean") {
+            evaluation_function != "Euclidean" &&
+            evaluation_function != "Ambas") {
           std::cout << "Introduzca una función válida." << std::endl;
         } else {
           finished_2 = true;
         }
       }
+
+
+      // En el caso de que la funcion de evaluacion seleccionada sea "Ambas" se procede a crear un objeto de la clase Grid
+      // al cual se le pasan los parametros de entrada y se le asigna el tipo de funcion de evaluacion que se desea utilizar
+      // para el calculo de la heuristica, este este caso ambas. Una vez hechas las busquedas re realiza unacomporacion de los
+      // resultados obtenidos mostrando que función es más optima en cada caso.
+
+      if (evaluation_function == "Ambas"){
+        int counter1{0}, counter2{0};
+        std::cout << "Introduzca el nombre de un segundo archivo de salida: ";
+        std::string second_file_name;
+        std::cin >> second_file_name;
+        std::ofstream second_output_file;
+        second_output_file.open(second_file_name);
+        Grid grid_1(rows, columns, init, end);
+        grid_1.BFS(init, end, "Manhattan");
+        counter1 = grid_1.GetCounter();
+        my_output_file << grid_1;
+        grid_1.BFS(init, end, "Euclidean");
+        counter2 = grid_1.GetCounter();
+        second_output_file << grid_1;
+
+        if (counter1 < counter2) {
+          std::cout << "\n La función Manhattan es más eficiente para este caso ya que ha realizado " 
+                    << counter2 - counter1 << " pasos menos." << std::endl;
+        } else if (counter1 > counter2) {
+          std::cout << "\n La función Euclidiana es más eficiente para este caso ya que ha realizado "
+                    << counter1 - counter2 << " pasos menos." << std::endl;
+        } else {
+          std::cout << "\n Ambas funciones son igual de eficientes." << std::endl;
+        }
+
+      }else {
+        Grid grid(rows, columns, init, end);
+        grid.BFS(init, end, evaluation_function);
+        my_output_file << grid;
+      }
+
       // Creamos el grafo correspondiente y realizamos las operaciones de la
       // búesqueda en anchura
-      Grid grid(rows, columns, init, end);
-      grid.BFS(init, end, evaluation_function);
-      my_output_file << grid;
+      
       finished = true;
     }
   }

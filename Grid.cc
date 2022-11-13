@@ -55,6 +55,16 @@ int ManhattanDistance(std::pair<int, int> current, std::pair<int, int> end) {
 //-----------------------------------------------------------------------------------------------
 void Grid::BFS(std::pair<int, int> inicio, std::pair<int, int> fin,
                std::string evaluation_function) {
+  // Volvemos la matriz a su estado inicial para poder realizar otra búsqueda
+  for (int i{0}; i < rows_; ++i) {
+    for (int j{0}; j < columns_; ++j) {
+      if (path_[i * columns_ + j] == "↑  " || path_[i * columns_ + j] == "↓  " ||
+          path_[i * columns_ + j] == "←  " || path_[i * columns_ + j] == "→  ") {
+        path_[i * columns_ + j] = "∙  ";
+      }
+    }
+  }
+  counter = 0;
   // --------------------------------------------------------------------------------------------
   // Variables para llevar a cabo la búsqueda
   // --------------------------------------------------------------------------------------------
@@ -107,6 +117,7 @@ void Grid::BFS(std::pair<int, int> inicio, std::pair<int, int> fin,
       end = true;
       break;
     }
+    
     // --------------------------------------------------------------------------------------------
     // Introducimos en la cola los respectivos vecinos del nodo
     // --------------------------------------------------------------------------------------------
@@ -212,7 +223,7 @@ void Grid::BFS(std::pair<int, int> inicio, std::pair<int, int> fin,
 std::ostream &operator<<(std::ostream &output, const Grid &grid) {
   output << "Grid de " << grid.rows_ << " filas y " << grid.columns_
          << " columnas" << std::endl;
-  output << "Se han realizado " << counter
+  output << "Se han realizado " << grid.counter
          << " iteraciones para encontrar el camino mínimo entre el ("
          << grid.init_.first << ", " << grid.init_.second << ") y el ("
          << grid.end_.first << ", " << grid.end_.second << ")" << std::endl;

@@ -44,5 +44,7 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "editor.fontFamily": "Cascadia Code ExtraLight",
+    "editor.fontLigatures": true,
 }
